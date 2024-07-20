@@ -2,10 +2,11 @@ const express = require("express");
 const nodemailer = require("nodemailer");
 const cors = require("cors");
 
-cors({ credentials: true, origin: true });
 const app = express();
 
 app.use(express.json());
+
+app.use(cors());
 
 app.post("/send-email", async (req, res) => {
   const { name, phone, email, message } = req.body;
